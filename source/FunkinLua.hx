@@ -2344,12 +2344,6 @@ class FunkinLua {
 			PlayState.instance.addShaderToCamera(camera, new InvertColorsEffect(lockAlpha));
 			
 		});  
-	
-		Lua_helper.add_callback(lua, "addHighShader", function(camera:String, effectiveness:Float = 0.0) {
-			
-			PlayState.instance.addShaderToCamera(camera, new HighEffect(effectiveness));
-			
-		});
 					
 		Lua_helper.add_callback(lua, "addGreyscaleShader", function(camera:String) {
 			
