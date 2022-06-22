@@ -2311,7 +2311,7 @@ class FunkinLua {
 
 		Lua_helper.add_callback(lua, "addGrainShader", function(camera:String, grainSize:Float=1.6, lumAmount:Float=1.0, coloramount:Float=0.6, lockAlpha:Bool=false) {
 			
-			PlayState.instance.addShaderToCamera(camera, new GrainEffect(grainSize, lumAmount, lockAlpha, coloramount));
+			PlayState.instance.addShaderToCamera(camera, new GrainEffect(grainSize, lumAmount, coloramount, lockAlpha));
 			
 		});
 		Lua_helper.add_callback(lua, "addTiltshiftShader", function(camera:String, blurAmount:Float=1.0, center:Float=1.0) {
