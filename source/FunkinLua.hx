@@ -36,6 +36,7 @@ import sys.io.File;
 import Type.ValueType;
 import Controls;
 import DialogueBoxPsych;
+import Shaders;
 
 #if desktop
 import Discord;
@@ -2294,6 +2295,12 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "stringEndsWith", function(str:String, end:String) {
 			return str.endsWith(end);
+		});
+					
+		Lua_helper.add_callback(lua, "addChromaticAbberationEffect", function(camera:String, chromeOffset:Float = 0.005) {
+            
+			PlayState.instance.addShaderToCamera(camera, new ChromaticAberrationEffect(chromeOffset));
+		
 		});
 
 		call('onCreate', []);
