@@ -13,7 +13,6 @@ import flixel.FlxG;
 import openfl.filters.ShaderFilter;
 import openfl.display.Shader;
 import Shaders;
-import DynamicShaderHandler;
 import flixel.FlxGame;
 import flixel.FlxObject;
 import flixel.FlxSprite;
