@@ -2351,6 +2351,12 @@ class FunkinLua {
 			PlayState.instance.addShaderToCamera(camera, new BloomEffect(blurSize, intensity));
 			
 		});
+					
+		Lua_helper.add_callback(lua, "clearEffects", function(camera:String) {
+			
+            		PlayState.instance.clearShaderFromCamera(camera);
+			
+		});
 
 		call('onCreate', []);
 		#end
