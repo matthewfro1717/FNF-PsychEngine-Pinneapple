@@ -12,7 +12,6 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import openfl.filters.ShaderFilter;
 import Shaders;
-import openfl.display.Shader;
 import flixel.FlxGame;
 import flixel.FlxObject;
 import flixel.FlxSprite;
