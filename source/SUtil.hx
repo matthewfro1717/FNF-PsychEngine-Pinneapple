@@ -1,6 +1,7 @@
 package;
 
 #if android
+import android.Tools;
 import android.Permissions;
 import android.PermissionsList;
 #end
