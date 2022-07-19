@@ -123,10 +123,8 @@ class FunkinLua {
 		set('seenCutscene', PlayState.seenCutscene);
 
 		// Block require and os, Should probably have a proper function but this should be good enough for now until someone smarter comes along and recreates a safe version of the OS library
-		set('os', true);
-		set('require', true);
-		//FUCK SHADOW MARIO
-		//TROLL BUILD MOMENT
+		set('require', false);
+		//what? Nothing happened in here
 
 		// Camera poo
 		set('cameraX', 0);
