@@ -99,10 +99,10 @@ class ChromaticAberrationEffect extends Effect
 class ScanlineEffect extends Effect
 {
 	
-	public var shader:Scanline;
+	public var shader(default,null):Scanline;
 	public function new (lockAlpha){
 		shader = new Scanline();
-		shader.lockAlpha.value = [lockAlpha];
+		shader.data.lockAlpha.value = [lockAlpha];
 	}
 	
 	
@@ -111,10 +111,10 @@ class ScanlineEffect extends Effect
 
 class Scanline extends FlxShader
 {
-	@:glFragmentSource('
+	public function new(){super('
 		#pragma header
 		const float scale = 1.0;
-	uniform bool lockAlpha = false;
+	        uniform bool lockAlpha;
 		void main()
 		{
 			if (mod(floor(openfl_TextureCoordv.y * openfl_TextureSize.y / scale), 2.0) == 0.0 ){
@@ -126,10 +126,8 @@ class Scanline extends FlxShader
 			}else{
 				gl_FragColor = texture2D(bitmap, openfl_TextureCoordv);
 			}
-		}')
-	public function new()
-	{
-		super();
+		}');
+	//
 	}
 }
 
