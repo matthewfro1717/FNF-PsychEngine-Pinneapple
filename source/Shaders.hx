@@ -99,10 +99,10 @@ class ChromaticAberrationEffect extends Effect
 class ScanlineEffect extends Effect
 {
 	
-	public var shader(default,null):Scanline;
+	public var shader:Scanline;
 	public function new (lockAlpha){
 		shader = new Scanline();
-		shader.data.lockAlpha.value = [lockAlpha];
+		shader.lockAlpha.value = [lockAlpha];
 	}
 	
 	
@@ -111,10 +111,10 @@ class ScanlineEffect extends Effect
 
 class Scanline extends FlxShader
 {
-	public function new(){super('
+	@:glFragmentSource('
 		#pragma header
 		const float scale = 1.0;
-	        uniform bool lockAlpha;
+	uniform bool lockAlpha = false;
 		void main()
 		{
 			if (mod(floor(openfl_TextureCoordv.y * openfl_TextureSize.y / scale), 2.0) == 0.0 ){
@@ -126,8 +126,10 @@ class Scanline extends FlxShader
 			}else{
 				gl_FragColor = texture2D(bitmap, openfl_TextureCoordv);
 			}
-		}');
-	//
+		}')
+	public function new()
+	{
+		super();
 	}
 }
 
@@ -962,7 +964,6 @@ void main()
 
 
 /*STOLE FROM DAVE AND BAMBI
-
 I LOVE BANUUU I LOVE BANUUU
    ________
   /        \
@@ -975,7 +976,6 @@ _/__________\_
    |   |  |
    |___|__|
     
-
 */
 
 
