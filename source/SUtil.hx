@@ -3,7 +3,6 @@ package;
 #if android
 import android.os.Environment;
 import android.Permissions;
-import android.PermissionsList;
 #end
 import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
@@ -44,13 +43,11 @@ class SUtil
 	public static function doTheCheck()
 	{
 		#if android
-		if (!Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE) || !Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
+
 		{
-			Permissions.requestPermissions([PermissionsList.READ_EXTERNAL_STORAGE, PermissionsList.WRITE_EXTERNAL_STORAGE]);
 			SUtil.applicationAlert('Permissions', "if you accepted the permissions all good if not expect a crash" + '\n' + 'Press Ok to see what happens');//shitty way to stop the app
 		}
 
-		if (Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE) || Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
 		{
 			if (!FileSystem.exists(Environment.getExternalStorageDirectory() + '/' + '.' + Application.current.meta.get('file')))
 				FileSystem.createDirectory(Environment.getExternalStorageDirectory() + '/' + '.' + Application.current.meta.get('file'));
