@@ -55,6 +55,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install hscript
           haxelib install hxCodec
+          haxelib install extension-androidtools
           haxelib git flixel-addons https://github.com/ninjamuffin99/flixel-addons
           haxelib git linc_luajit https://github.com/Sirox228/linc_luajit.git
           haxelib list
